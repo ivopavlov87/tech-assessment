@@ -25,6 +25,8 @@ File system module was used to access/read/write to the JSON files. The provided
 
 jsonReader helper function was created to make a simpler way of retrieving updated values from the "orders database."
 
+Bonus: I decided to not go with the super easy and almost zero-code solution of using the JSON-Server npm package https://www.npmjs.com/package/json-server
+
 # Hey developers, engineers, hackers. 
 **This is important!** We want to respect your valuable time so **_PLEASE_** timebox this exercise.
 
