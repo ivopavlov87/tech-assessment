@@ -25,6 +25,8 @@ File system module was used to access/read/write to the JSON files. The provided
 
 jsonReader helper function was created to make a simpler way of retrieving updated values from the "orders database."
 
+Future ideas: with more time, I would like to clean up the code, DRY it up, make helper functions, probably make the order a class, as well as add some validation to ensure an order is formatted correctly, and that when an update/delete is done that the order exists. Currently, the code is assuming that a lot of things are done correctly, which is not always the case in real world use and validations and better error handling will prevent breaks/bad data.
+
 Bonus: I decided to not go with the super easy and almost zero-code solution of using the JSON-Server npm package https://www.npmjs.com/package/json-server
 
 # Hey developers, engineers, hackers. 
