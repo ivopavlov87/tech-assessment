@@ -22,7 +22,7 @@ test('Can get all orders by customer', async () => {
         .forEach((customerOrder, idx) => expectedResult[`${idx}`] = customerOrder)
 
     const response = await request(app).get('/orders/byCustomer/0')
-    expect(JSON.parse(response.text)).toStrictEqual(expectedResult);
+    expect(JSON.parse(response.text)).toEqual({...expectedResult});
 })
 
 test('Create an order', async() => {
