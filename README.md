@@ -23,6 +23,8 @@ When an order is deleted, it made most business sense to me to set the status of
 
 File system module was used to access/read/write to the JSON files. The provided template for NodeJS was used and modified for this exercise.
 
+Nodemon npm library was used to trigger a server restart on any code change to make development easier.
+
 jsonReader helper function was created to make a simpler way of retrieving updated values from the "orders database."
 
 Future ideas: with more time, I would like to clean up the code, DRY it up, make helper functions, probably make the order a class, as well as add some validation to ensure an order is formatted correctly, and that when an update/delete is done that the order exists. Currently, the code is assuming that a lot of things are done correctly, which is not always the case in real world use and validations and better error handling will prevent breaks/bad data.
