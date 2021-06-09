@@ -20,7 +20,6 @@ app.get('/orders', (req, res) => {
 })
 
 app.get('/orders/byCustomer/:id', (req, res) => {
-  console.log(req)
   jsonReader('../data/orders.json', (err, ordersDB) => {
     if (err) {
         console.log('Error reading file:',err)

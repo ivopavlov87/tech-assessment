@@ -14,6 +14,17 @@ test('Can get all orders', async () => {
     expect(response.text).toBe(expectedResult);
 })
 
+test('Can get all orders by customer', async () => {
+    let expectedResult = {}
+    
+    Object.values(JSON.parse(fs.readFileSync('../data/orders.json', 'utf8')))
+        .filter(order => order.customer.id === "0")
+        .forEach((customerOrder, idx) => expectedResult[`${idx}`] = customerOrder)
+
+    const response = await request(app).get('/orders/byCustomer/0')
+    expect(JSON.parse(response.text)).toStrictEqual(expectedResult);
+})
+
 test('Create an order', async() => {
     const body = {
         "customerId": "1",
