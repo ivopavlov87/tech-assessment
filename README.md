@@ -1,3 +1,24 @@
+# Update:
+* **To start server:** `npm run start`
+* **To run tests:** `npm run test`
+* **Entry point:** index.js
+
+For development Postman was used to test endpoints by passing an the order object into the request body in the form of
+
+`
+{
+    "customerId": "1",
+    "items": {
+        "4": 2,
+        "0": 2
+    }
+}
+`
+
+This was to keep the object as minimal as possible as the customer, and item information could be retrieved from the JSON objects in the data folder, which were acting as pseudo-databases.
+
+When an order is deleted, it made most business sense to me to set the status of the order to "Cancelled" instead of a hard delete to keep track of records.
+
 # Hey developers, engineers, hackers. 
 **This is important!** We want to respect your valuable time so **_PLEASE_** timebox this exercise.
 
