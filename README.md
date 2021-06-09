@@ -1,5 +1,6 @@
 # Update: Exercise completed using NodeJS.
 * **First step:** Navigate to the `Node.JS/src` folder
+* **Install NPM packages:** Run `npm install`
 * **To start server:** `npm run start`
 * **To run tests:** `npm run test`
 * **Entry point:** index.js
