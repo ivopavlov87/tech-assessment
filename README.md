@@ -16,9 +16,9 @@ For development Postman was used to test endpoints by passing an the order objec
 }
 `
 
-During development, [Postman](https://www.postman.com/) was used for testing purposes of each endpoint. To install, go to: https://www.postman.com/.
+This was to keep the object as minimal as possible as the customer, and item information could be retrieved from the JSON objects in the data folder, which were acting as pseudo-databases. The customerId is the customers ID in the "database". The number string that is the key in the "items" object is the item's "barcode", and the integer value corresponds to the quantity of the item.
 
-This was to keep the object as minimal as possible as the customer, and item information could be retrieved from the JSON objects in the data folder, which were acting as pseudo-databases.
+During development, [Postman](https://www.postman.com/) was used for testing purposes of each endpoint. To install, go to: https://www.postman.com/.
 
 When an order is deleted, it made most business sense to me to set the status of the order to "Cancelled" instead of a hard delete to keep track of records.
 
