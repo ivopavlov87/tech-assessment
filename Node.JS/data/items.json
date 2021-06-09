@@ -1,0 +1,27 @@
+{
+  "0": {
+    "name": "Schwarma Sandwich",
+    "price": 5.99,
+    "id": "0"
+  },
+  "1": {
+    "name": "Hammer",
+    "price": 7.77,
+    "id": "1"
+  },
+  "2": {
+    "name": "Bag of Electronics",
+    "price": 13.37,
+    "id": "2"
+  },
+  "3": {
+    "name": "Jazz Record",
+    "price": 19.45,
+    "id": "3"
+  },
+  "4": {
+    "name": "Music T-Shirt",
+    "price": 19.45,
+    "id": "4"
+  }
+}

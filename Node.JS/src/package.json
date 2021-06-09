@@ -3,7 +3,7 @@
     "author": "yournamehere",
     "main": "src/app.js",
     "scripts": {
-        "start": "node app.js",
+        "start": "nodemon index.js",
         "test": "jest --testTimeout=10000"
     },
     "jest": {
@@ -17,6 +17,7 @@
     },
     "devDependencies": {
         "jest": "^26.4.0",
+        "nodemon": "^2.0.7",
         "supertest": "^4.0.2"
     }
 }

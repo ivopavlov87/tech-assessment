@@ -1,12 +1,69 @@
 const request = require('supertest');
 const app = require('../app');
+const fs = require('fs');
 
-test('Should return 200 status', async () => {
-    const response = await request(app).get('/health');
+test('Should return 200 status for all orders', async () => {
+    const response = await request(app).get('/orders');
     expect(response.statusCode).toBe(200);
 });
 
-test('Test response text', async () => {
-    const response = await request(app).get('/health');
-    expect(response.text).toBe('You keep using that word. I do not think it means what you think it means.');
+test('Can get all orders', async () => {
+    let expectedResult = JSON.stringify(JSON.parse(fs.readFileSync('../data/orders.json', 'utf8')))
+
+    const response = await request(app).get('/orders')
+    expect(response.text).toBe(expectedResult);
 })
+
+test('Create an order', async() => {
+    const body = {
+        "customerId": "1",
+        "items": {
+            "4": 2,
+            "0": 2
+        }
+    };
+    const currentNumberOfOrders = Object.keys(JSON.parse(fs.readFileSync('../data/orders.json', 'utf8'))).length
+    await request(app).post('/orders').send(body)
+
+    const updatedNumberOfOrders = Object.keys(JSON.parse(fs.readFileSync('../data/orders.json', 'utf8'))).length
+
+    expect(updatedNumberOfOrders).toBe(currentNumberOfOrders+1);
+});
+
+test('Update an order', async() => {
+    const body = {
+        "customerId": "2",
+        "items": {
+            "4": 2,
+            "0": 2
+        }
+    };
+    const currentOrderNumbers = Object.keys(JSON.parse(fs.readFileSync('../data/orders.json', 'utf8')))
+    const mostRecentOrderNumber = currentOrderNumbers[currentOrderNumbers.length - 1]
+
+    await request(app).put(`/orders/${mostRecentOrderNumber}`).send(body)
+
+    const allOrders = Object.values(JSON.parse(fs.readFileSync('../data/orders.json', 'utf8')))
+    const mostRecentOrder = allOrders[allOrders.length - 1]
+
+    expect(mostRecentOrder.customer.firstName).toBe("Steve");
+});
+
+test('Cancel an order', async() => {
+    const body = {
+        "customerId": "2",
+        "items": {
+            "4": 2,
+            "0": 2
+        }
+    };
+    const currentOrderNumbers = Object.keys(JSON.parse(fs.readFileSync('../data/orders.json', 'utf8')))
+    const mostRecentOrderNumber = currentOrderNumbers[currentOrderNumbers.length - 1]
+    
+    await request(app).delete(`/orders/${mostRecentOrderNumber}`).send(body)
+
+    const allOrders = Object.values(JSON.parse(fs.readFileSync('../data/orders.json', 'utf8')))
+    const mostRecentOrder = allOrders[allOrders.length - 1]
+
+    expect(mostRecentOrder.status).toBe("Cancelled");
+});
